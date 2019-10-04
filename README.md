@@ -2,7 +2,6 @@
 Teste CRUD (AngularJS)
 
 ## CRUD de Clientes
-----
 ### 1. Escopo
 Crie um mini sistema, em AngularJS, para gerenciamento de clientes genéricos.
 
