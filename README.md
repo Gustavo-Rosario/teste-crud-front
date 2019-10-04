@@ -14,7 +14,7 @@ O mesmo deverá conter:
     * Edição (opcional)
     
 ### 2. Estrutura de dados CLIENTE
-Campo        | Tipo    | Observacao
+Campo        | Tipo    | Observação
 ------------ | ------- | ----------
 ID           | String  |
 Nome         | String  |
@@ -24,7 +24,7 @@ CPF          | Int     | CPF sem formatação
 Especial     | Boolean | Campo marcavel
 
 ### 3. Tarefas
-* Siga o padrão implementado no esqueleto do pŕojeto
+* Siga o padrão implementado no esqueleto do projeto
 * Crie uma branch com seu nome a partir de **master** para fazer suas modificações
   * Exemplo: **fulano/crud-front**
 * Use a conexão com a API do segundo projeto <https://github.com/Gustavo-Rosario/teste-crud-api>
