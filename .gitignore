@@ -1,0 +1,11 @@
+node_modules/
+dist/*
+!dist/.keep
+app.config.js
+.vscode/
+bower_components/
+tmp/*
+fonts/*
+/index.html
+.s3-website.json
+.DS_Store
