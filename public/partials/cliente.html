@@ -1,0 +1,40 @@
+<form novalidate name="clienteForm" ng-submit="cadastrarCliente()">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="nome" >Nome</label>
+        <input class="form-control" type="text" ng-model="cliente.nome" name="nome" placeholder="Nome" ng-required="true"/>
+        <div ng-show="clienteForm.nome.$error.required && clienteForm.nome.$dirty" class="alert alert-danger col-sm"> nome obrigatorio</div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="nome" >biografia</label>
+        <input class="form-control" type="text" ng-model="cliente.biografia" name="biografia" placeholder="blalbal" ng-required="true" ng-minlength="10"/>
+        <div ng-show="clienteForm.biografia.$error.required && clienteForm.biografia.$dirty" class=" alert alert-danger col-sm"> biografia obrigatoria</div>
+        <div ng-show="clienteForm.biografia.$error.minlength" class="col-sm"> tamanho minimo 10</div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="nascimento">Data de Nascimento</label>
+        <input class="form-control" type="text" ng-model="cliente.nascimento" name="nascimento" placeholder="dd/mm/ano" ng-required="true" ui-date-mask="DD/MM/YYYY"/>
+        <div ng-show="clienteForm.nascimento.$invalid &&clienteForm.nascimento.$dirty" class="alert alert-danger col-sm"> preencha uma data valida</div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="cpf">CPF</label>
+        <input class="form-control" type="text" ng-model="cliente.cpf" name="cpf" placeholder="393123124" ng-required="true" ui-br-cpf-mask/>
+        <div ng-show="clienteForm.cpf.$invalid &&clienteForm.cpf.$dirty" class="alert alert-danger col-sm"> preencha um cpf</div>
+      </div>
+
+      <div class="col-md-3">
+        <label for="especial">Especial</label>
+        <select id="inputState" class="form-control" name="especial" ng-model="cliente.especial" ng-required="true">
+            <option value="" disabled>Selecione</option>
+            <option selected value="1">SIM</option>
+            <option value="0">NÃO</option>
+        </select>
+      </div>
+
+    <button type="submit" class="btn btn-primary col-md-12" ng-disabled="clienteForm.$invalid">Salvar Cliente</button>
+    <a href="/lista" class="btn btn-primary col-md-12">Voltar</a> 
+  </div>
+</form>

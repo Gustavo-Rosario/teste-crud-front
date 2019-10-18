@@ -1,0 +1,27 @@
+<div class="jumbotron">
+  <input ng-model="filtro" class="form-control" placeholder="filtrar">
+    <table ng-show="Clientes.length > 0" class="table table-striped">
+      <tr>
+        <th>Selecionar</th>
+        <th></th>
+        <th>Nome</th>
+        <th>biografia</th>
+        <th>nascimento</th>
+        <th>CPF</th>
+        <th>especial</th>
+      </tr>
+      <tr ng-repeat="cliente in Clientes | filter: filtro">
+        <td><input type="checkbox" ng-model="cliente.selecionado"></td>
+        <td>
+        <button type="submit" class="btn btn-danger btn-sm" ng-click="excluirCliente(Clientes)" ng-disabled="!cliente.selecionado">Apagar Cliente</button>
+        <a href="lista/editar/{{cliente._id}}" class="btn btn-warning btn-sm">Editar Cliente</a>
+        </td>
+        <td>{{cliente.nome}}</td>
+        <td>{{cliente.biografia}}</td>
+        <td>{{cliente.nascimento | date: "dd.MM.y"}}</td>
+        <td>{{cliente.cpf}}</td>
+        <td>{{cliente.especial}}</td>
+      </tr>
+    </table>
+    <hr/>
+    <a href="/lista/novo" class="btn btn-primary col-md-12">Novo Cliente</a>
