@@ -1,0 +1,106 @@
+<!-- FORMULÁRIO -->
+<form novalidate class="formInicio" name="formulario">
+
+    <h3 class="text-muted" ng-bind="modal.titulo"></h3>
+    <div class="jumbotron">
+
+        <fieldset class="campo-bg ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <label for="inputlg">Nome</label>
+                        <input type="text" ng-model="segurado.nome" name="nome" class="form-control input-lg" id="inputlg" placeholder="Digite seu Nome" ng-pattern="" ng-maxlength="40" required>
+                        <span ng-show = "formulario.nome.$error.required && formulario.nome.$dirty" class="form-control alert-danger">
+                        Nome obrigatório
+                        </span> 
+                        <span ng-show = "formulario.nome.$error.maxlength" class="form-control alert-danger">
+                        Máximo 40 caracteres
+                        </span>
+                    </div>
+
+                    <div class="col-6">
+                        <label for="inputlg">CPF</label>
+                        <input type="text" ui-br-cpf-mask ng-model="segurado.cpf" name="cpf" class="form-control input-lg" placeholder="000.000.000-00" required>
+                        <span ng-show = "formulario.cpf.$error.required && formulario.cpf.$dirty" class="form-control alert-danger">
+                        Documento CPF obrigatório
+                        </span> 
+                    </div>
+
+                    <div class="col-6">
+                        <label for="inputlg">Data de Nascimento</label>
+                        <input type="text" ui-date-mask="DD-MM-YYYY"  ng-model="segurado.nascimento" name="data" class="form-control input-lg dataSinistro" id="inputlg" placeholder="dd/mm/aaaa" ng-required="true" required>
+                        <span ng-show = "formulario.data.$error.required && formulario.data.$dirty" class="form-control alert-danger">
+                        Preencha com uma data válida.
+                        </span> 
+                    </div>
+
+                    <div class="col-6">
+                        <label for="inputlg">Data do Sinistro</label>
+                        <input type="text" ui-date-mask="DD-MM-YYYY"  ng-model="segurado.dsinistro" name="sinistro" class="form-control input-lg dataSinistro" id="inputlg" placeholder="dd/mm/aaaa" ng-required="true" required>
+                        <span ng-show = "formulario.sinistro.$error.required && formulario.sinistro.$dirty" class="form-control alert-danger">
+                        Preencha com uma data válida.
+                        </span> 
+                    </div>
+
+                    <div class="col-6">
+                        <label for="inputlg">Descreva o ocorrido</label>
+                        <textarea type="text" ng-model="segurado.descricao" name="descricao" class="form-control" id="inputlg" placeholder="Descreva como ocorreu o sinistro" ng-required="true" ng-pattern="" required></textarea>
+                        <span ng-show = "formulario.descricao.$error.required && formulario.descricao.$dirty" class="form-control alert-danger">
+                        Preencha o campo de Descrição para detalhes do ocorrido !
+                        </span> 
+                    </div>
+
+                    <div class="form-group col-6">
+                        <label> Selecione o Condutor </label>
+                        <select class="form-control" ng-model="segurado.condutor" name="condutor" placeholder="Selecione o condutor" required>
+                        <option value="" disabled>Selecione</option>
+                        <option selected value="true">CONDUTOR</option>
+                        <option value="false">NÃO CONDUTOR</option>
+
+                        </select>
+                        <span ng-show = "formulario.condutor.$error.required && formulario.condutor.$dirty" class="form-control alert-danger">
+                        Selecione o condutor do carro
+                        </span> 
+                    </div>
+                    <br>
+                    <br>
+                    <!-- ui-br-cpf-mask
+                    ui-date-mask="DD-MM-YYYY" -->
+                    <!--ng-disabled="cadastroForm.$invalid"-->
+                    <!-- onclick="location.href=('/principal') --> 
+                </div>
+
+                <div class="btn-group" role="group" arial-label="Basic exemple">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">Enviar</button>
+
+                    <button class="btn btn-secondary" id="btnVolta"  onclick="location.href=('/principal ')">Voltar</button>
+
+                    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Confirmação de Dados</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div><strong>Nome: </strong>{{segurado.nome}}</div>
+                                    <div><strong>Descrição: </strong>{{segurado.descricao}} </div>
+                                    <div><strong>Data de Nascimento: </strong>{{segurado.nascimento | date: "dd-MM-yyyy" }}</div>
+                                    <div><strong>Data do Sinistro: </strong>{{segurado.dsinistro | date: "dd-MM-yyyy" }}</div>
+                                    <div><strong>CPF: </strong>{{segurado.cpf}}</div>
+                                    <div><strong>Condutor: </strong>{{segurado.condutor}}</div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <button type="submit" class="btn btn-primary" ng-click="adicionaSegurado(segurado)" onclick="location.href=('/principal')">Confirmar</button>
+                                </div> 
+                            </div>
+                        </div>      
+                    </div>
+                </div>
+            </div> 
+        </div>                                                           
+    </fieldset>          
+</form>

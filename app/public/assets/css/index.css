@@ -1,0 +1,21 @@
+body {
+    background-color:   #FFFFF0;
+}
+
+h3 {
+    color: #ffff;
+    padding-top: 35px;
+}        
+
+.form-control {
+    margin-bottom: 5px;
+} 
+
+tr    {
+    text-align: center;
+}
+
+h5 {
+    color: black;
+    text-align: center;
+}

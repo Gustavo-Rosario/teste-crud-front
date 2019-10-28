@@ -1,0 +1,36 @@
+<div class="tcolor">
+
+   <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+         <tr>            
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Data Nasc</th>
+            <th>Data Sinistro</th>
+            <th>Descrição</th>
+            <th>Condutor</th>
+            <th></th>    
+         </tr>
+      </thead>
+
+      <tbody>
+         <!-- track by segurado.nome  -->
+         <tr ng-repeat="segurado in segurados | filter: buscaSegurado">        
+            <td>{{segurado.nome}}</td>
+            <td>{{segurado.cpf}}</td>
+            <td>{{segurado.nascimento | date: "dd-MM-yyyy"}}</td>
+            <td>{{segurado.dsinistro | date: "dd-MM-yyyy"}}</td>
+            <td>{{segurado.descricao}}</td>
+            <td>{{segurado.condutor}} </td>
+
+            <td class= "altEx">
+               <div class="btn-group">
+                  <a  href='/principal/formulario/edit/{{segurado._id}}' class="btn btn-warning" >Editar</a>
+
+                  <button ng-click="remover(segurado)" class="btn btn-danger" onclick="location.href=('/principal')">Remover</button>
+               </div>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+</div>   

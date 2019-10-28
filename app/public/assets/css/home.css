@@ -1,0 +1,13 @@
+/* HOME.HTML */
+.homeHeader {
+	margin-top: 50px;
+}
+
+.homeInfo {
+	margin-top: 50px;
+}
+
+#btn-home-1,
+#btn-home-2 {
+	margin-left: 200px;
+}

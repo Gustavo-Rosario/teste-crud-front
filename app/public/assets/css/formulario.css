@@ -1,0 +1,42 @@
+/* FORMULARIO.HTML */
+span {
+    margin-top: 5px;
+}
+
+.modal-title {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 30px;
+}
+
+.text-muted {
+    padding-left: 20px;
+}
+
+*/
+.campo-bg {
+    background: #f2f0ee;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    background: #f2f0ee;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin: 20px;
+}
+
+#btnVolta {
+    margin-left: 10px;
+}
+
+
+.formInicio {
+    margin-top: -40px;
+}
