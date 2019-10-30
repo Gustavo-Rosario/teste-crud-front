@@ -1,0 +1,112 @@
+<div class="container">
+  
+  <div class="page-header">
+    
+    <div class="titleAgenda">	
+      <h3 class="text-center " ng-if="novoCliente">NOVO CLIENTE </h3>
+      <h3 class="text-center " ng-if="editarCliente" >EDITAR CLIENTE </h3>	
+      <hr class="style1">
+    </div>
+    
+  </div>
+  
+  <p class="alert alert-info" role="alert" ng-show="mensagem.length">{{mensagem}}</p>
+  
+  
+  <form novalidate name="formulario" ng-submit="submeter()">
+    
+    <div class="row"> 
+      <div class="col-6">
+        
+        <div class="form-group">
+          
+          <label  for="nome">Nome Completo:</label>
+          <input class="form-control" type="text" ng-model="cliente.nome" name="nome" placeholder="Nome Completo" required ng-maxlength="40">
+          <span  ng-show="formulario.nome.$error.required && formulario.nome.$dirty" class="form-control alert-danger">Nome Completo Obrigatório</span>
+          <span  ng-show="formulario.nome.$error.maxlength" class="form-control alert-danger">Máximo de Caracteres inserido.</span>
+          
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="form-group ">  
+          <label  for="cpf">CPF:</label>
+          <input class="form-control" type="text" ng-model="cliente.cpf" name="cpf" placeholder="000.000.000-00" required ui-br-cpf-mask/>     
+          <span  ng-show=" formulario.cpf.$error.required && formulario.cpf.$dirty" class="form-control alert-danger">CPF Obrigatório</span>
+        </div>  
+      </div> 
+      
+      <div class="col-3">
+        <div class="form-group ">
+          <label  for="nascimento">Data de Nascimento:</label>
+          <input class="form-control" type="text" ng-model="cliente.nascimento" name="nascimento" placeholder="00/00/0000" required ng-maxlength="12" ui-date-mask="DD-MM-YYYY">
+          <span  ng-show="formulario.nascimento.$error.required && formulario.nascimento.$dirty" class="form-control alert-danger">Data de Nascimento Obrigatório</span>
+          <span  ng-show="formulario.nascimento.$error.maxlength" class="form-control alert-danger">Formato correto Data 00/00/0000</span>
+        </div>
+      </div>
+      
+      <div class="col-3">
+        
+        <div class="form-group ">
+          <label  for="celular">celular:</label> 
+          <input class="form-control" type="text" ng-model="cliente.celular" name="celular" placeholder="(99)99999-9999" required ng-maxlength="15" ui-br-phone-number="areaCode">
+          
+          <span  ng-show="formulario.celular.$error.required && formulario.celular.$dirty" class="form-control alert-danger">Insira um número de celular! </span>
+          <span  ng-show="formulario.celular.$error.maxlength"  class="form-control alert-danger">Preenchimento Correto celular:00000-0000</span>
+        </div>
+      </div>
+      
+      <div class="col-6">
+        <div class="form-group ">
+          <label  for="email">E-mail:</label>
+          <input class="form-control" type="text" ng-model="cliente.email" name="email" placeholder="cliente@cliente.com.br" required ng-maxlength="40" >
+          <span  ng-show="formulario.email.$error.required && formulario.email.$dirty" class="form-control alert-danger">Email Obrigatório</span>
+          <span  ng-show="formulario.email.$error.maxlength" class="form-control alert-danger">Máximo de Caracteres inserido.</span>
+        </div>
+      </div>
+      
+      <div class="col-3">
+        <div class="form-group ">
+          <label for="">Selecione o Sexo do Cliente:</label>
+          <select ng-model="cliente.genero"  name="genero" class="custom-select" required>
+            <!--ng-options= "genero.sexo for genero in generos"-->
+            <span  ng-show="formulario.genero.$error.required && formulario.genero.$dirty" class="form-control alert-danger"></span>
+            <option  disabled value="">Selecione:</option>
+            <option value="Masculino">masculino</option>
+            <option value="Feminino">feminino</option>
+          </select>
+        </div>
+        
+      </div>
+      
+      <div class="col-3">
+        <div class="form-group ">
+          <label for="">Possui alguma deficiencia?</label>
+          <select ng-model="cliente.def"  name="def" class="custom-select" required>
+            <!--ng-options= "def.opcao for def in defs"-->
+            <span  ng-show="formulario.def.$error.required && formulario.def.$dirty" class="form-control alert-danger"></span>
+            <option  disabled value="">Selecione:</option>
+            <option ng-value="true">Sim</option>
+            <option ng-value="false">Não</option>
+          </select>
+        </div>       
+      </div>
+      
+      <div class="col-9">
+        <div class="form-group">  
+          <label  for="biografia">Biografia:</label>
+          <textarea class="form-control" id="biografia" name="biografia" rows="3"ng-model="cliente.biografia"  placeholder="Biografia do Cliente." ng-maxlength="200" ></textarea>
+          <span  ng-show="formulario.biografia.$error.required && formulario.biografia.$dirty" class="form-control alert-danger">biografia  Obrigatória</span>
+          <span  ng-show="formulario.biografia.$error.maxlength" class="form-control alert-danger">Máximo de Caracteres inserido.</span>
+        </div>            
+      </div>     
+    </div>
+    
+    <div class="row">
+      <div class="col-4 offset-8">
+        <button type="submit" class="btn btn-primary" name="salvar">Salvar</button>
+        <a href="/principal" type="btn" class= "btn btn-info" >Voltar</a>
+      </div>
+    </div>
+  </form>
+  
+</div>

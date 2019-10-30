@@ -1,0 +1,99 @@
+<div class="container" ng-controller="AgendaController">
+  
+  <div class="page-header">
+    
+    <div class="titleAgenda">	
+      <h3 class="text-center ">AGENDA DE CLIENTES </h3>	
+      <hr class="style1">
+    </div>
+    
+  </div>
+  
+  <p class="alert alert-info" role="alert" ng-show="mensagem.length">{{mensagem}}</p>
+  
+  <section>			
+    <form>
+      <div class="row">
+        
+        <div class="col-8 offset-2">
+          <input class="form-control"  placeholder="Pesquise por Empresa, CNPJ, Contatos, Telefone ou e-mail."
+          ng-model="filtro"/>
+          
+        </div>
+        <div>
+          <a href="/lista/newclient" class= "btn btn-success">Cadastrar Paciente</a>     
+        </div>
+      </div>
+    </form>
+  </section>
+  
+  <br>
+  <div class="text-center" >
+    <table class="table table-striped table-dark table-bordered">
+      <thead>
+        <tr>
+          <th>Perfil</th>
+          <th>ID</th>
+          <th>CONTATO</th>
+          <!-- <th>CPF</th> -->
+          <!-- <th>NASCIMENTO</th> -->
+          <th>CELULAR</th>
+          <th>EMAIL</th>
+          <th>Possui Deficiencia?</th>
+          <!-- <th>BIOGRAFIA</th> -->
+          <th>EDITAR</th>
+          <th>EXCLUIR</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="cliente in clientes | filter: filtro">
+          <td><button type="button" class="btn btn-light" ><a href="/lista/perfil/{{cliente._id}}">Perfil</a></button></td>
+          <td>{{cliente._id}}</td>
+          <td>{{cliente.nome}}</td>
+          <!-- <td>{{cliente.cpf}}</td> -->
+          <!-- <td>{{idade(cliente.nascimento)}}</td> -->
+          <td>{{cliente.celular}}</td>
+          <td>{{cliente.email}}</td>
+          <td ng-if="cliente.def">sim</td>
+          <td ng-if="!cliente.def">Não</td>
+          <!-- <td>{{cliente.biografia}}</td> -->
+          <td><button type="button" class="btn btn-primary"><a href="/lista/edit/{{cliente._id}}"><ion-icon class="icone" name="create"></ion-icon></a></button></td>
+          <td class="excluir"><button type="button" class="btn btn-danger"><a data-toggle="modal" ng-click="remover(cliente)"><ion-icon class="icone" name="trash"></ion-icon></a></button></td>
+          
+        </tr>
+      </tbody>	
+    </table>
+  </div>
+  
+  <div>
+    <!-- Button trigger modal -->
+    
+    <a data-toggle="modal" data-target="#modalremover">
+      
+      <!-- Modal -->
+      <div class="modal fade" id="modalremover" tabindex="-1" role="dialog" aria-labelledby="modalremoverTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title"  id="exampleModalCenterTitle">Confirmação de exclusão</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              
+              <p>Obs: Esta ação não pode ser desfeita.</p>
+              
+              <p>Deseja excluir o Prontuário do Paciente ?</p>
+              
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-info" data-dismiss="modal" ng-click="remover(clienteAtual)">Excluir Prontuário</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    

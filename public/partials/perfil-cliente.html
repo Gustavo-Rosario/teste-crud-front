@@ -1,0 +1,94 @@
+<div class="container">
+  
+    <div class="page-header">
+      
+      <div class="titleAgenda">	
+        <h3 class="text-center ">PERFIL DO CLIENTE </h3>	
+        <hr class="style1">
+      </div>
+      
+    </div>
+ 
+    <form >
+      
+      <div class="row"> 
+        <div class="col-6">
+          
+          <div class="form-group">
+            
+            <label  for="nome">Nome Completo:</label>
+            <input class="form-control" type="text" placeholder="{{cliente.nome}}" readonly>
+  
+          </div>
+        </div>
+
+        <div class="col-3">
+          <div class="form-group ">  
+            <label  for="cpf">CPF:</label>
+            <input class="form-control" type="text" placeholder="{{cliente.cpf}}" name="cpf" readonly/>     
+            
+          </div>  
+        </div> 
+        
+        <div class="col-3">
+          <div class="form-group ">
+            <label  for="nascimento">Data de Nascimento:</label>
+            <input class="form-control" type="text" name="nascimento" placeholder="{{cliente.nascimento}}" readonly>
+          </div>
+        </div>
+        
+        <div class="col-3">
+          
+          <div class="form-group ">
+            <label  for="celular">celular:</label>
+            <input class="form-control" type="text" name="celular" placeholder="{{cliente.celular}}" readonly>
+            
+          </div>
+        </div>
+        
+        <div class="col-6">
+          <div class="form-group ">
+            <label  for="email">E-mail:</label>
+            <input class="form-control" type="text" name="email" placeholder="{{cliente.celular}}" readonly>
+           
+          </div>
+        </div>
+        
+        <div class="col-3">
+          <div class="form-group ">
+            <label for="">Sexo do Cliente:</label>
+            <input class="form-control" type="text" name="genero" placeholder="{{cliente.genero}}" readonly>
+     
+            </select>
+          </div>
+          
+        </div>
+        
+        <div class="col-3">
+          <div class="form-group ">
+            <label for="">Possui alguma deficiencia?</label>
+            <input class="form-control" type="text" name="def" placeholder="{{cliente.def}}" readonly>
+           
+          </div>       
+        </div>
+        
+        <div class="col-9">
+          <div class="form-group">  
+            <label  for="biografia">Biografia:</label>
+            <textarea  class="form-control" readonly>{{cliente.biografia}}</textarea>
+         
+          </div>            
+        </div>     
+      </div>
+
+      <div class="row">
+          <div class="col-4">
+            <a href="/principal" type="btn" class= "btn btn-info" >Voltar</a>
+          </div>
+        </div>
+
+      
+    </form>
+    
+  </div>
+  
