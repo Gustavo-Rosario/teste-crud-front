@@ -1,0 +1,17 @@
+h1{
+    text-align: center;
+}
+.espaços{
+    margin: 1em;
+    margin-left: 1em;
+    text-align: center;
+}
+.container{
+    width: 90%;
+    height:100%;
+    margin:0 auto;
+}
+.botoes{
+    text-align: right;
+    margin: auto;
+}

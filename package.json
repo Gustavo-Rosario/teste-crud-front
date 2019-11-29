@@ -1,0 +1,27 @@
+{
+  "name": "crud3",
+  "version": "1.0.0",
+  "description": "Teste CRUD (AngularJS)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gustavo-Rosario/teste-crud-front.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gustavo-Rosario/teste-crud-front/issues"
+  },
+  "homepage": "https://github.com/Gustavo-Rosario/teste-crud-front#readme",
+  "dependencies": {
+    "angularjs": "0.0.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "http-server": "^0.9.0",
+    "mongoose": "^5.7.10"
+  }
+}
